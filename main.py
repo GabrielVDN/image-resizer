@@ -41,9 +41,7 @@ class ImageResizer(tk.Tk):
         '''Show a frame for the given page name'''
         frame = self.frames[page_name]
         frame.tkraise()
-        frame.insert_data()
-        frame.focus_entry()
 
 
-GUI = PasswordManager()
+GUI = ImageResizer()
 GUI.mainloop()
