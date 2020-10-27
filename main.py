@@ -18,7 +18,7 @@ class ImageResizer(tk.Tk):
         style.theme_use("clam")
 
         # Give the Widget a name.
-        self.title("Password Manager")
+        self.title("Image Resizer")
         # Center your Frame in the middle-top.
         self.columnconfigure(0, weight=1)
 
