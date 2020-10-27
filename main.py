@@ -22,8 +22,8 @@ class ImageResizer(tk.Tk):
         # Center your Frame in the middle-top.
         self.columnconfigure(0, weight=1)
 
-        # Set the overall fontsize to 16 instead of 10.
-        font.nametofont("TkDefaultFont").configure(size=16)
+        # Set the overall fontsize to 12 instead of 10.
+        font.nametofont("TkDefaultFont").configure(size=12)
 
         # Create the path variables.
         self.PATH_DATA = os.path.join(*[PATH_APPDATA, 'password-manager', 'data.json'])
