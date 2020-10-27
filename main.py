@@ -25,12 +25,6 @@ class ImageResizer(tk.Tk):
         # Set the overall fontsize to 12 instead of 10.
         font.nametofont("TkDefaultFont").configure(size=12)
 
-        self.add_username = tk.StringVar()
-        self.add_password = tk.StringVar()
-
-        self.search_name = tk.StringVar()
-
-
         self.frames = {}
         for F in (Login,Home, Add, List, Search):
             page_name = F.__name__
