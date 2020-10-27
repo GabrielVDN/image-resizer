@@ -25,21 +25,6 @@ class ImageResizer(tk.Tk):
         # Set the overall fontsize to 12 instead of 10.
         font.nametofont("TkDefaultFont").configure(size=12)
 
-        # Create the path variables.
-        self.PATH_DATA = os.path.join(*[PATH_APPDATA, 'password-manager', 'data.json'])
-        self.PATH_PASSWORD = os.path.join(*[PATH_APPDATA, 'password-manager', 'password.json'])
-
-        # Create all needed tk.-variables.
-        self.login1 = tk.StringVar(
-            value="Choose a log-in password\nfor this Password Manager."
-        )
-        self.login2 = tk.StringVar(value="Log In")
-
-        self.login1_password = tk.StringVar()
-        self.login2_password = tk.StringVar()
-        self.login3_password = tk.StringVar()
-
-        self.add_service = tk.StringVar()
         self.add_username = tk.StringVar()
         self.add_password = tk.StringVar()
 
