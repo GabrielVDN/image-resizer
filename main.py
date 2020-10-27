@@ -14,8 +14,6 @@ class ImageResizer(tk.Tk):
         container.grid()
 
         # Set the style to 'clam'.
-        style = ttk.Style()
-        style.theme_use("clam")
 
         # Give the Widget a name.
         self.title("Image Resizer")
