@@ -26,7 +26,7 @@ class ImageResizer(tk.Tk):
         font.nametofont("TkDefaultFont").configure(size=12)
 
         self.frames = {}
-        for F in (Login,Home, Add, List, Search):
+        for F in ():
             page_name = F.__name__
             frame = F(parent=container, controller=self)
             self.frames[page_name] = frame
