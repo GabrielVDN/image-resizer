@@ -22,6 +22,7 @@ class ImageResizer(tk.Tk):
         # Give the Widget a size.
         self.geometry("400x200")
         # Center your Frame in the middle-top.
+        self.columnconfigure(0, weight=1)
 
         # Set the overall fontsize to 12 instead of 10.
         font.nametofont("TkDefaultFont").configure(size=12)
