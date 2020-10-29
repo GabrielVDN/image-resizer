@@ -14,9 +14,9 @@ class StartPage(ttk.Frame):
         laberl1 = ttk.Label(self, text="Start Page")
         laberl1.grid()
 
-        go_back_button = ttk.Button(
+        download_page_button = ttk.Button(
             self,
             text="Download Page",
             command=lambda: controller.show_frame("DownloadPage"),
         )
-        go_back_button.grid(row=1, column=0, padx=8, pady=8, sticky="EW")
+        download_page_button.grid(row=1, column=0, padx=8, pady=8, sticky="EW")

@@ -13,3 +13,10 @@ class DownloadPage(ttk.Frame):
         # Add some labels.
         laberl1 = ttk.Label(self, text="Download Page")
         laberl1.grid()
+        
+        start_page_button = ttk.Button(
+            self,
+            text="Start Page",
+            command=lambda: controller.show_frame("StartPage"),
+        )
+        start_page_button.grid(row=1, column=0, padx=8, pady=8, sticky="EW")
