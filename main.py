@@ -1,5 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
+from frames.start_page import StartPage
+from frames.download_page import DownloadPage
 import tkinter.font as font
 from ctypes import windll
 windll.shcore.SetProcessDpiAwareness(1)
