@@ -18,6 +18,5 @@ class StartPage(ttk.Frame):
             self,
             text="Download Page",
             command=lambda: controller.show_frame("DownloadPage"),
-            width=10,
         )
-        go_back_button.grid(row=1, column=0, padx=8, pady=8)#, sticky="NE")
+        go_back_button.grid(row=1, column=0, padx=8, pady=8, sticky="EW")
