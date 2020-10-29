@@ -19,4 +19,4 @@ class StartPage(ttk.Frame):
             text="Download Page",
             command=lambda: controller.show_frame("DownloadPage"),
         )
-        download_page_button.grid(row=1, column=0, padx=8, pady=8, sticky="EW")
+        download_page_button.grid(row=1, column=0, padx=12, pady=12, sticky="EW")
