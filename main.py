@@ -30,7 +30,7 @@ class ImageResizer(tk.Tk):
         font.nametofont("TkDefaultFont").configure(size=12)
 
         self.frames = {}
-        for F in ():
+        for F in (StartPage, DownloadPage):
             page_name = F.__name__
             frame = F(parent=container, controller=self)
             self.frames[page_name] = frame
@@ -39,7 +39,8 @@ class ImageResizer(tk.Tk):
             # the one on the top of the stacking order
             # will be the one that is visible.
             frame.grid(row=0, column=0, sticky="nsew")
-        
+    
+        self.show_frame("StartPage")
 
     def show_frame(self, page_name):
         '''Show a frame for the given page name'''

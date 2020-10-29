@@ -11,5 +11,5 @@ class DownloadPage(ttk.Frame):
         self.columnconfigure(0, weight=1)
 
         # Add some labels.
-        laberl1 = ttk.Label(self, text="View Stock")
+        laberl1 = ttk.Label(self, text="Download Page")
         laberl1.grid()
