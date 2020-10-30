@@ -27,7 +27,7 @@ class ImageResizer(tk.Tk):
         self.columnconfigure(0, weight=1)
 
         # Set the overall fontsize to 12 instead of 10.
-        font.nametofont("TkDefaultFont").configure(size=12)
+        font.nametofont("TkDefaultFont").configure(size=15)
 
         self.frames = {}
         for F in (StartPage, DownloadPage):
