@@ -22,7 +22,7 @@ class ImageResizer(tk.Tk):
         # Give the Widget a name.
         self.title("Image Resizer")
         # Give the Widget a size.
-        self.geometry("600x200")
+        self.geometry("600x300")
         # Center your Frame in the middle-top.
         self.columnconfigure(0, weight=1)
 
