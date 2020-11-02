@@ -14,8 +14,10 @@ class StartPage(ttk.Frame):
 
         def UploadAction(event=None):
             filename = filedialog.askopenfilename(initialdir="\\Users\\gabri\\OneDrive\\Pictures\\SavedPictures", title="Select An Image", filetypes=(("jpeg files", "*.jpg"), ("gif files", "*.gif*"), ("png files", "*.png")))
+
             image_label = ttk.Label(self, text=filename)
             image_label.grid(row=3, column=0, padx=12, pady=12)
+            
             my_image = ImageTk.PhotoImage(Image.open(filename))
             my_image_label = ttk.Label(self, image=my_image)
             my_image_label.grid(row=4, column=0, padx=12, pady=12)
