@@ -2,13 +2,6 @@ import tkinter as tk
 from tkinter import ttk
 from tkinter import filedialog
 
-def UploadAction(event=None):
-    filename = filedialog.askopenfilename()
-    print('Selected:', filename)
-
-root = tk.Tk()
-button = tk.Button(root, text='Open', command=UploadAction)
-button.pack()
 
 class StartPage(ttk.Frame):
     def __init__(self, parent, controller):
@@ -20,7 +13,10 @@ class StartPage(ttk.Frame):
 
         # Add some labels.
         laberl1 = ttk.Label(self, text="Start Page")
-        laberl1.grid(row=0, column=0)
+        laberl1.grid(row=0, column=0, padx=12, pady=12)
+
+        button = tk.Button(root, text='Open', command=UploadAction)
+        button.grid(row=1, column=0, padx=12, pady=12)
 
         download_page_button = ttk.Button(
             self,
