@@ -1,6 +1,14 @@
 import tkinter as tk
 from tkinter import ttk
+from tkinter import filedialog
 
+def UploadAction(event=None):
+    filename = filedialog.askopenfilename()
+    print('Selected:', filename)
+
+root = tk.Tk()
+button = tk.Button(root, text='Open', command=UploadAction)
+button.pack()
 
 class StartPage(ttk.Frame):
     def __init__(self, parent, controller):
