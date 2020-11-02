@@ -17,10 +17,6 @@ class StartPage(ttk.Frame):
 
             image_label = ttk.Label(self, text=filename)
             image_label.grid(row=3, column=0, padx=12, pady=12)
-            
-            my_image = ImageTk.PhotoImage(Image.open(filename))
-            my_image_label = ttk.Label(self, image=my_image)
-            my_image_label.grid(row=4, column=0, padx=12, pady=12)
 
         # Add some labels.
         laberl1 = ttk.Label(self, text="Start Page")
