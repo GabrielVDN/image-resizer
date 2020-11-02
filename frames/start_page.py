@@ -15,7 +15,7 @@ class StartPage(ttk.Frame):
         laberl1 = ttk.Label(self, text="Start Page")
         laberl1.grid(row=0, column=0, padx=12, pady=12)
 
-        button = tk.Button(root, text='Open', command=UploadAction)
+        button = tk.Button(root, text='Open', command=self.UploadAction)
         button.grid(row=1, column=0, padx=12, pady=12)
 
         download_page_button = ttk.Button(
@@ -24,3 +24,8 @@ class StartPage(ttk.Frame):
             command=lambda: controller.show_frame("DownloadPage"),
         )
         download_page_button.grid(row=2, column=0, padx=12, pady=12, sticky="NE")
+
+
+    def UploadAction(event=None):
+        filename = filedialog.askopenfilename()
+        print('Selected:', filename)
