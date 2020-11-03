@@ -27,8 +27,4 @@ class StartPage(ttk.Frame):
             text="Download Page",
             command=lambda: controller.show_frame("DownloadPage"),
         )
-        download_page_button.grid(row=3, column=0, padx=12, pady=12, sticky="EW")
-
-    def get_imgages(self):
-        filename = filedialog.askopenfilename(initialdir="\\Users\\gabri\\OneDrive\\Pictures\\SavedPictures", title="Select An Image", filetypes=(("jpeg files", "*.jpg"), ("gif files", "*.gif*"), ("png files", "*.png")))
-
+        download_page_button.grid(row=3, column=0, padx=12, pady=12, sticky="EW")   
