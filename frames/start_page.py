@@ -12,23 +12,23 @@ class StartPage(ttk.Frame):
         # Center your Frame in the middle-top.
         self.columnconfigure(0, weight=1)
 
-        def UploadAction(event=None):
-            filename = filedialog.askopenfilename(initialdir="\\Users\\gabri\\OneDrive\\Pictures\\SavedPictures", title="Select An Image", filetypes=(("jpeg files", "*.jpg"), ("gif files", "*.gif*"), ("png files", "*.png")))
-
-            if filename:
-                image_label = ttk.Label(self, text=filename)
-                image_label.grid(row=3, column=0, padx=12, pady=12)
-
         # Add some labels.
         laberl1 = ttk.Label(self, text="Start Page")
         laberl1.grid(row=0, column=0, padx=12, pady=12)
 
-        button = ttk.Button(self, text='Open', command=UploadAction)
-        button.grid(row=1, column=0, padx=12, pady=12, sticky="EW")
+        img_listbox = tk.Listbox(self, height=10, width=60)
+        img_listbox.grid(row=1, column=0, padx=12, pady=12)
+
+        button = ttk.Button(self, text='Open', command=self.get_imgages)
+        button.grid(row=2, column=0, padx=12, pady=12, sticky="EW")
 
         download_page_button = ttk.Button(
             self,
             text="Download Page",
             command=lambda: controller.show_frame("DownloadPage"),
         )
-        download_page_button.grid(row=2, column=0, padx=12, pady=12, sticky="EW")
+        download_page_button.grid(row=3, column=0, padx=12, pady=12, sticky="EW")
+
+    def get_imgages(self):
+        filename = filedialog.askopenfilename(initialdir="\\Users\\gabri\\OneDrive\\Pictures\\SavedPictures", title="Select An Image", filetypes=(("jpeg files", "*.jpg"), ("gif files", "*.gif*"), ("png files", "*.png")))
+
