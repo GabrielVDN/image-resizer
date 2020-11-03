@@ -25,7 +25,7 @@ class StartPage(ttk.Frame):
         if not filenamelist:
             img_listbox.insert("end", "No imgages have been selcted")
 
-        x = tk.IntVar(value=0)
+        x = tk.IntVar()
 
         def get_imgages():
             '''open file explorer and let them select an imgage'''
