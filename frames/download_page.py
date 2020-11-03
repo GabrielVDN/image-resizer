@@ -12,7 +12,7 @@ class DownloadPage(ttk.Frame):
 
         # Add some labels.
         laberl1 = ttk.Label(self, text="Download Page")
-        laberl1.grid()
+        laberl1.grid(row=0, column=0, padx=12, pady=12)
         
         start_page_button = ttk.Button(
             self,
