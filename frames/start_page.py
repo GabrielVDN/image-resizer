@@ -21,8 +21,8 @@ class StartPage(ttk.Frame):
         
         def get_imgages():
             filename = filedialog.askopenfilename(initialdir="\\Users\\gabri\\OneDrive\\Pictures\\SavedPictures", title="Select An Image", filetypes=(("jpeg files", "*.jpg"), ("gif files", "*.gif*"), ("png files", "*.png")))
-            
-            img_listbox.insert("end", filename)
+            if filename:
+                img_listbox.insert("end", filename)
 
         button = ttk.Button(self, text='Open', command=get_imgages)
         button.grid(row=2, column=0, padx=12, pady=12, sticky="EW")
