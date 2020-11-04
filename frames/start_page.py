@@ -35,12 +35,12 @@ class StartPage(ttk.Frame):
                 img_listbox.insert("end", filename)
                 controller.filenamelist.append(filename)
 
-        button = ttk.Button(self, text='Open', command=get_imgages)
+        button = ttk.Button(self, text='Import Some Pictures', command=get_imgages)
         button.grid(row=2, column=0, padx=12, pady=12, sticky="EW")
 
         download_page_button = ttk.Button(
             self,
-            text="Download Page",
+            text="Next",
             command=lambda: controller.show_frame("DownloadPage"),
         )
         download_page_button.grid(row=3, column=0, padx=12, pady=12, sticky="EW")   
