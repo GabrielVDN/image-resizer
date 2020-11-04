@@ -13,7 +13,7 @@ class StartPage(ttk.Frame):
         self.columnconfigure(0, weight=1)
 
         # Add some labels.
-        laberl1 = ttk.Label(self, text="Start Page")
+        laberl1 = ttk.Label(self, text="Start Page", font=('bold', 25))
         laberl1.grid(row=0, column=0, padx=12, pady=12)
 
         img_listbox = tk.Listbox(self, height=10, width=60)
