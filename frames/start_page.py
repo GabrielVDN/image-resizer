@@ -12,9 +12,6 @@ class StartPage(ttk.Frame):
         # Center your Frame in the middle-top.
         self.columnconfigure(0, weight=1)
 
-        # Store the already selected files in a list.
-        filenamelist = []
-
         # Add some labels.
         laberl1 = ttk.Label(self, text="Start Page")
         laberl1.grid(row=0, column=0, padx=12, pady=12)
@@ -22,7 +19,7 @@ class StartPage(ttk.Frame):
         img_listbox = tk.Listbox(self, height=10, width=60)
         img_listbox.grid(row=1, column=0, padx=12, pady=12)
         
-        if not filenamelist:
+        if not controller.filenamelist:
             img_listbox.insert("end", "No imgages have been selcted")
 
         x = tk.IntVar()
@@ -30,13 +27,13 @@ class StartPage(ttk.Frame):
         def get_imgages():
             '''open file explorer and let them select an imgage'''
             filename = filedialog.askopenfilename(initialdir="\\Users\\gabri\\OneDrive\\Pictures\\SavedPictures", title="Select An Image", filetypes=(("jpeg files", "*.jpg"), ("png files", "*.png"), ("icon files", "*.ico")))
-            if filename and filename not in filenamelist:
+            if filename and filename not in controller.filenamelist:
                 if x.get() == 0:
                     img_listbox.delete(0, 'end')
                     x.set(1)
 
                 img_listbox.insert("end", filename)
-                filenamelist.append(filename)
+                controller.filenamelist.append(filename)
 
         button = ttk.Button(self, text='Open', command=get_imgages)
         button.grid(row=2, column=0, padx=12, pady=12, sticky="EW")

@@ -29,6 +29,9 @@ class ImageResizer(tk.Tk):
         # Set the overall fontsize to 12 instead of 10.
         font.nametofont("TkDefaultFont").configure(size=15)
 
+        # Create some neede vars
+        self.filenamelist = []
+
         self.frames = {}
         for F in (StartPage, DownloadPage):
             page_name = F.__name__
