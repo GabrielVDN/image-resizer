@@ -19,21 +19,33 @@ class StartPage(ttk.Frame):
         img_listbox = tk.Listbox(self, height=10, width=60)
         img_listbox.grid(row=1, column=0, padx=12, pady=12)
         
-        if not controller.filenamelist:
+        if not controller.all_img_paths:
             img_listbox.insert("end", "No imgages have been selcted")
 
         x = tk.IntVar()
 
         def get_imgages():
             '''open file explorer and let them select an imgage'''
-            filename = filedialog.askopenfilename(initialdir="\\Users\\gabri\\OneDrive\\Pictures\\SavedPictures", title="Select An Image", filetypes=(("jpeg files", "*.jpg"), ("png files", "*.png"), ("icon files", "*.ico")))
-            if filename and filename not in controller.filenamelist:
-                if x.get() == 0:
-                    img_listbox.delete(0, 'end')
-                    x.set(1)
+            img_paths = list(filedialog.askopenfilenames(initialdir="\\Users\\gabri\\OneDrive\\Pictures\\SavedPictures", title="Select An Image", filetypes=(("jpeg files", "*.jpg"), ("png files", "*.png"), ("icon files", "*.ico"))))
+            
+            if img_paths:
+                if len(img_paths) > 1:
+                    for path in img_paths:
+                        controller.all_img_paths.append(path)
+                else:
+                    controller.all_img_paths.append(img_paths)
 
-                img_listbox.insert("end", filename)
-                controller.filenamelist.append(filename)
+            if x.get() == 1:
+                img_listbox.delete(0,'end')
+
+            if controller.all_img_paths:
+                for img_path in controller.all_img_paths:
+                    print(img_path)
+                    if x.get() == 0:
+                        img_listbox.delete(0, 'end')
+                        x.set(1)
+
+                    img_listbox.insert("end", img_path)
 
         button = ttk.Button(self, text='Import Some Pictures', command=get_imgages)
         button.grid(row=2, column=0, padx=12, pady=12, sticky="EW")

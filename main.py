@@ -30,7 +30,7 @@ class ImageResizer(tk.Tk):
         font.nametofont("TkDefaultFont").configure(size=15)
 
         # Create some neede vars
-        self.filenamelist = []
+        self.all_img_paths = []
 
         self.frames = {}
         for F in (StartPage, DownloadPage):
