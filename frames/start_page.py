@@ -31,9 +31,11 @@ class StartPage(ttk.Frame):
             if img_paths:
                 if len(img_paths) > 1:
                     for path in img_paths:
-                        controller.all_img_paths.append(path)
+                        if path not in controller.all_img_paths:
+                            controller.all_img_paths.append(path)
                 else:
-                    controller.all_img_paths.append(img_paths)
+                    if img_paths not in controller.all_img_paths:
+                        controller.all_img_paths.append(img_paths)
 
             if x.get() == 1:
                 img_listbox.delete(0,'end')
