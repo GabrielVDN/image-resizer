@@ -38,15 +38,17 @@ class StartPage(ttk.Frame):
 
             if controller.all_img_paths:
                 for img_path in controller.all_img_paths:
-                    print(img_path)
                     if x.get() == 0:
                         img_listbox.delete(0, 'end')
                         x.set(1)
 
                     img_listbox.insert("end", img_path)
 
-        button = ttk.Button(self, text='Import Some Pictures', command=get_imgages)
-        button.grid(row=2, column=0, padx=12, pady=12, sticky="EW")
+        btn_get_img = ttk.Button(self, text='Import Some Pictures', command=get_imgages)
+        btn_get_img.grid(row=2, column=0, padx=12, pady=12, sticky="EW")
+
+        btn_delete_img = ttk.Button(self, text='Import Some Pictures', command=get_imgages)
+        btn_delete_img.grid(row=2, column=0, padx=12, pady=12, sticky="EW")
 
         download_page_button = ttk.Button(
             self,
