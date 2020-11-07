@@ -13,14 +13,13 @@ class StartPage(ttk.Frame):
         self.columnconfigure(0, weight=1)
 
         # Add some labels.
-        laberl1 = ttk.Label(self, text="Start Page", font=('bold', 25))
-        laberl1.grid(row=0, column=0, padx=12, pady=12)
+        laberl = ttk.Label(self, text="Start Page", font=('Verdana', 50))
+        laberl.grid(rowspan=2, column=0, padx=12, pady=12)
 
         img_listbox = tk.Listbox(self, height=10, width=60)
-        img_listbox.grid(row=1, column=0, padx=12, pady=12)
+        img_listbox.grid(row=2, columnspan=3, padx=12, pady=12)
         
-        if not controller.all_img_paths:
-            img_listbox.insert("end", "No imgages have been selcted")
+        img_listbox.insert("end", "No imgages have been selcted")
 
         x = tk.IntVar()
 
@@ -45,19 +44,23 @@ class StartPage(ttk.Frame):
                     img_listbox.insert("end", img_path)
 
         btn_get_img = ttk.Button(self, text='Import Some Pictures', command=get_imgs)
-        btn_get_img.grid(row=2, column=0, padx=12, pady=12, sticky="EW")
+        btn_get_img.grid(row=0, column=1, padx=12, pady=12, sticky="EW")
 
         def delete_img():
             '''Delete selection from listbox'''
             selection = img_listbox.curselection()
-            img_listbox.delete(selection[0])
+            try:
+                print(selection)
+                img_listbox.delete(selection[0])
+            except:
+                pass
 
         btn_delete_img = ttk.Button(self, text='Delete Selected Picture', command=delete_img)
-        btn_delete_img.grid(row=2, column=0, padx=12, pady=12, sticky="EW")
+        btn_delete_img.grid(row=1, column=1, padx=12, pady=12, sticky="EW")
 
         download_page_button = ttk.Button(
             self,
             text="Next",
             command=lambda: controller.show_frame("DownloadPage"),
         )
-        download_page_button.grid(row=3, column=0, padx=12, pady=12, sticky="EW")   
+        download_page_button.grid(row=3, columnspan=3, padx=12, pady=12, sticky="EW")   
