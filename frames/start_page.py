@@ -47,6 +47,11 @@ class StartPage(ttk.Frame):
         btn_get_img = ttk.Button(self, text='Import Some Pictures', command=get_imgs)
         btn_get_img.grid(row=2, column=0, padx=12, pady=12, sticky="EW")
 
+        def delete_img():
+            '''Delete selection from listbox'''
+            selection = img_listbox.curselection()
+            img_listbox.delete(selection[0])
+
         btn_delete_img = ttk.Button(self, text='Delete Selected Picture', command=delete_img)
         btn_delete_img.grid(row=2, column=0, padx=12, pady=12, sticky="EW")
 
