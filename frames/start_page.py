@@ -29,15 +29,9 @@ class StartPage(ttk.Frame):
             img_paths = list(filedialog.askopenfilenames(initialdir="\\Users\\gabri\\OneDrive\\Pictures\\SavedPictures", title="Select An Image", filetypes=(("jpeg files", "*.jpg"), ("png files", "*.png"), ("icon files", "*.ico"))))
             
             if img_paths:
-                if len(img_paths) > 1:
-                    print('+2')
-                    for path in img_paths:
-                        if path not in controller.all_img_paths:
-                            controller.all_img_paths.append(path)
-                else:
-                    print('1')
-                    if img_paths not in controller.all_img_paths:
-                        controller.all_img_paths.append(img_paths)
+                for path in img_paths:
+                    if path not in controller.all_img_paths:
+                        controller.all_img_paths.append(path)
 
             if x.get() == 1:
                 img_listbox.delete(0,'end')
