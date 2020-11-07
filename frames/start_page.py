@@ -24,7 +24,7 @@ class StartPage(ttk.Frame):
 
         x = tk.IntVar()
 
-        def get_imgages():
+        def get_imgs():
             '''open file explorer and let them select an imgage'''
             img_paths = list(filedialog.askopenfilenames(initialdir="\\Users\\gabri\\OneDrive\\Pictures\\SavedPictures", title="Select An Image", filetypes=(("jpeg files", "*.jpg"), ("png files", "*.png"), ("icon files", "*.ico"))))
             
@@ -44,10 +44,10 @@ class StartPage(ttk.Frame):
 
                     img_listbox.insert("end", img_path)
 
-        btn_get_img = ttk.Button(self, text='Import Some Pictures', command=get_imgages)
+        btn_get_img = ttk.Button(self, text='Import Some Pictures', command=get_imgs)
         btn_get_img.grid(row=2, column=0, padx=12, pady=12, sticky="EW")
 
-        btn_delete_img = ttk.Button(self, text='Import Some Pictures', command=get_imgages)
+        btn_delete_img = ttk.Button(self, text='Delete Selected Picture', command=delete_img)
         btn_delete_img.grid(row=2, column=0, padx=12, pady=12, sticky="EW")
 
         download_page_button = ttk.Button(
