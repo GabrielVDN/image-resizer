@@ -30,10 +30,12 @@ class StartPage(ttk.Frame):
             
             if img_paths:
                 if len(img_paths) > 1:
+                    print('+2')
                     for path in img_paths:
                         if path not in controller.all_img_paths:
                             controller.all_img_paths.append(path)
                 else:
+                    print('1')
                     if img_paths not in controller.all_img_paths:
                         controller.all_img_paths.append(img_paths)
 
