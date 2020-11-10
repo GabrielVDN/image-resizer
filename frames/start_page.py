@@ -50,7 +50,6 @@ class StartPage(ttk.Frame):
             '''Delete selection from listbox'''
             selection = img_listbox.curselection()
             try:
-                print(selection)
                 img_listbox.delete(selection[0])
             except:
                 pass
