@@ -43,7 +43,9 @@ class StartPage(ttk.Frame):
 
                     img_listbox.insert("end", img_path)
 
-        btn_get_img = ttk.Button(self, text='Import Some Pictures', command=get_imgs)
+        btn_get_img = ttk.Button(
+            self, text='Import Some Pictures', command=lambda: [get_imgs(), next_btn()]
+        )
         btn_get_img.grid(row=0, column=1, padx=12, pady=12, sticky="EW")
 
         def delete_img():
@@ -57,12 +59,21 @@ class StartPage(ttk.Frame):
             if len(controller.all_img_paths) == 0 and not img_listbox.get(0):
                 img_listbox.insert("end", "No images have been selcted.")
 
-        btn_delete_img = ttk.Button(self, text='Delete Selected Picture', command=delete_img)
+        def next_btn():
+            if len(controller.all_img_paths) > 0:
+                next_page_button['state'] = 'normal'
+            else:
+                next_page_button['state'] = 'disabled'
+
+        btn_delete_img = ttk.Button(
+            self, text='Delete Selected Picture', command=lambda: [delete_img(), next_btn()]
+        )
         btn_delete_img.grid(row=1, column=1, padx=12, pady=12, sticky="EW")
 
-        download_page_button = ttk.Button(
+        next_page_button = ttk.Button(
             self,
             text="Next",
             command=lambda: controller.show_frame("DownloadPage"),
+            state="disabled"
         )
-        download_page_button.grid(row=3, columnspan=3, padx=12, pady=12, sticky="EW")   
+        next_page_button.grid(row=3, columnspan=3, padx=12, pady=12, sticky="EW")  
