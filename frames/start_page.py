@@ -13,8 +13,8 @@ class StartPage(ttk.Frame):
         self.columnconfigure(0, weight=1)
 
         # Add some labels.
-        laberl = ttk.Label(self, text="Imgage Resizer", font=('Verdana', 35))
-        laberl.grid(rowspan=2, column=0, padx=12, pady=12)
+        laber1 = ttk.Label(self, text="Image Resizer", font=('Verdana', 35))
+        laber1.grid(rowspan=2, column=0, padx=12, pady=12)
 
         img_listbox = tk.Listbox(self, height=10, width=60)
         img_listbox.grid(row=2, columnspan=3, padx=12, pady=12)
@@ -62,8 +62,10 @@ class StartPage(ttk.Frame):
         def next_btn():
             if len(controller.all_img_paths) > 0:
                 next_page_button['state'] = 'normal'
+                next_page_button['text'] = 'Next'
             else:
                 next_page_button['state'] = 'disabled'
+                next_page_button['text'] = 'First select images/an image'
 
         btn_delete_img = ttk.Button(
             self, text='Delete Selected Picture', command=lambda: [delete_img(), next_btn()]
@@ -72,7 +74,7 @@ class StartPage(ttk.Frame):
 
         next_page_button = ttk.Button(
             self,
-            text="Next",
+            text="First select images/an image",
             command=lambda: controller.show_frame("DownloadPage"),
             state="disabled"
         )
