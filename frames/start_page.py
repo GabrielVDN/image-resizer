@@ -13,7 +13,7 @@ class StartPage(ttk.Frame):
         self.columnconfigure(0, weight=1)
 
         # Add some labels.
-        laberl = ttk.Label(self, text="Start Page", font=('Verdana', 50))
+        laberl = ttk.Label(self, text="Imgage Resizer", font=('Verdana', 35))
         laberl.grid(rowspan=2, column=0, padx=12, pady=12)
 
         img_listbox = tk.Listbox(self, height=10, width=60)
@@ -54,7 +54,7 @@ class StartPage(ttk.Frame):
                 controller.all_img_paths.pop(selection[0])
             except:
                 pass
-            if len(controller.all_img_paths) == 0:
+            if len(controller.all_img_paths) == 0 and not img_listbox.get(0):
                 img_listbox.insert("end", "No imgages have been selcted.")
 
         btn_delete_img = ttk.Button(self, text='Delete Selected Picture', command=delete_img)
