@@ -51,8 +51,11 @@ class StartPage(ttk.Frame):
             selection = img_listbox.curselection()
             try:
                 img_listbox.delete(selection[0])
+                controller.all_img_paths.pop(selection[0])
             except:
                 pass
+            if len(controller.all_img_paths) == 0:
+                img_listbox.insert("end", "No imgages have been selcted.")
 
         btn_delete_img = ttk.Button(self, text='Delete Selected Picture', command=delete_img)
         btn_delete_img.grid(row=1, column=1, padx=12, pady=12, sticky="EW")
