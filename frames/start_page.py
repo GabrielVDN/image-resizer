@@ -19,7 +19,7 @@ class StartPage(ttk.Frame):
         img_listbox = tk.Listbox(self, height=10, width=60)
         img_listbox.grid(row=2, columnspan=3, padx=12, pady=12)
         
-        img_listbox.insert("end", "No imgages have been selcted")
+        img_listbox.insert("end", "No images have been selcted.")
 
         x = tk.IntVar()
 
@@ -55,7 +55,7 @@ class StartPage(ttk.Frame):
             except:
                 pass
             if len(controller.all_img_paths) == 0 and not img_listbox.get(0):
-                img_listbox.insert("end", "No imgages have been selcted.")
+                img_listbox.insert("end", "No images have been selcted.")
 
         btn_delete_img = ttk.Button(self, text='Delete Selected Picture', command=delete_img)
         btn_delete_img.grid(row=1, column=1, padx=12, pady=12, sticky="EW")
