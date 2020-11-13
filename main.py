@@ -29,8 +29,11 @@ class ImageResizer(tk.Tk):
         # Set the overall fontsize to 12 instead of 10.
         font.nametofont("TkDefaultFont").configure(size=15)
 
-        # Create some neede vars
+        # Create the list in wich you'll save the selcted images.
         self.all_img_paths = []
+        # Create all needed Variables.
+        self.var_radio = tk.StringVar()
+
 
         self.frames = {}
         for F in (StartPage, DownloadPage):
