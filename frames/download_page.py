@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
+import time
 
 
 class DownloadPage(ttk.Frame):
@@ -10,17 +11,17 @@ class DownloadPage(ttk.Frame):
         # Center your Frame in the middle-top.
         self.columnconfigure(0, weight=1)
 
-        # Add some labels.
-        laberl1 = ttk.Label(self, text="Chose the new size for the pictures.", font=('Verdana', 20))
-        laberl1.grid(row=0, column=0, padx=12, pady=12)
+        # Add some widgets.
+        label1 = ttk.Label(self, text="Chose the new size for the pictures.", font=('Verdana', 20))
+        label1.grid(row=0, column=0, padx=12, pady=12)
         
-        start_page_button = ttk.Button(
+        back_button = ttk.Button(
             self,
             text="🔙",
             width=3,
             command=lambda: controller.show_frame("StartPage"),
         )
-        start_page_button.grid(row=0, column=0, padx=12, pady=12, sticky="E")
+        back_button.grid(row=0, column=0, padx=12, pady=12, sticky="E")
 
         radio1 = ttk.Radiobutton(
             self, text="10px", variable=controller.var_radio, value="10px"
@@ -41,10 +42,37 @@ class DownloadPage(ttk.Frame):
             self, text="40px", variable=controller.var_radio, value="40px"
         )
         radio4.grid(row=4, column=0, padx=12, pady=12)
-        
-        start_page_button = ttk.Button(
+
+        label2 = ttk.Label(self, font=('system', 15))
+        label2.grid(row=5, column=0, padx=12, pady=(30, 12))
+
+        int_var = tk.IntVar()
+        progbar = ttk.Progressbar(
+            self,
+            orient=tk.HORIZONTAL, 
+            mode='determinate',
+            maximum=100,
+            variable=int_var,
+            style="TProgressbar"
+        )
+        progbar.grid(row=6, column=0, padx=12, pady=12, sticky="EW")
+
+        def add1():
+            print(f"resizing in to {controller.var_radio.get()}")
+            label2['text'] = 'Resizing'
+            back_button['state'] = 'disabled'
+            while int_var.get() < 101:
+                int_var.set(int_var.get()+1)
+                time.sleep(0.01)
+                self.update()
+            label2['text'] = 'Done!'
+            self.update()
+            time.sleep(1)
+            int_var.set(0)
+
+        resize_button = ttk.Button(
             self,
             text="Resize",
-            command=lambda: print(f"resizing in to {controller.var_radio.get()}")
+            command=add1
         )
-        start_page_button.grid(row=5, column=0, padx=12, pady=12, sticky="EW")
+        resize_button.grid(row=7, column=0, padx=12, pady=12, sticky="EW")

@@ -11,7 +11,7 @@ class StartPage(ttk.Frame):
         # Center your Frame in the middle-top.
         self.columnconfigure(0, weight=1)
 
-        # Add some labels.
+        # Add some widgets.
         laber1 = ttk.Label(self, text="Image Resizer", font=('Verdana', 35))
         laber1.grid(rowspan=2, column=0, padx=12, pady=12)
 
