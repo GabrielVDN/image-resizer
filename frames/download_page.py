@@ -57,7 +57,7 @@ class DownloadPage(ttk.Frame):
         )
         progbar.grid(row=6, column=0, padx=12, pady=12, sticky="EW")
 
-        def add1():
+        def resize_images():
             print(f"resizing in to {controller.var_radio.get()}")
             label2['text'] = 'Resizing'
             back_button['state'] = 'disabled'
@@ -73,6 +73,6 @@ class DownloadPage(ttk.Frame):
         resize_button = ttk.Button(
             self,
             text="Resize",
-            command=add1
+            command=resize_images
         )
         resize_button.grid(row=7, column=0, padx=12, pady=12, sticky="EW")
