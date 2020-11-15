@@ -58,8 +58,7 @@ class DownloadPage(ttk.Frame):
         progbar.grid(row=6, column=0, padx=12, pady=12, sticky="EW")
 
         def resize_images():
-            print(f"resizing in to {controller.var_radio.get()}")
-            label2['text'] = 'Resizing'
+google scriptgoogle script            label2['text'] = 'Resizing'
             back_button['state'] = 'disabled'
             while int_var.get() < 101:
                 int_var.set(int_var.get()+1)
