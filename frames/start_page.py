@@ -12,7 +12,7 @@ class StartPage(ttk.Frame):
         self.columnconfigure(0, weight=1)
 
         # Add some widgets.
-        laber1 = ttk.Label(self, text="Image Resizer", font=('Verdana', 35))
+        laber1 = ttk.Label(self, text="Image Resizer", font=('Verdana', 30))
         laber1.grid(rowspan=2, column=0, padx=12, pady=12)
 
         img_listbox = tk.Listbox(self, height=10, width=60)
@@ -74,7 +74,7 @@ class StartPage(ttk.Frame):
         next_page_button = ttk.Button(
             self,
             text="First select images/an image",
-            command=lambda: controller.show_frame("DownloadPage"),
+            command=lambda: controller.show_frame("ResizePage"),
             state="disabled"
         )
         next_page_button.grid(row=3, columnspan=3, padx=12, pady=12, sticky="EW")  

@@ -1,11 +1,21 @@
 import tkinter as tk
 from tkinter import ttk
 from frames.start_page import StartPage
-from frames.download_page import DownloadPage
+from frames.resize_page import ResizePage
 import tkinter.font as font
+import os
 from ctypes import windll
 windll.shcore.SetProcessDpiAwareness(1)
 
+
+PATH_APPDATA = os.getenv("APPDATA")
+# Check if the datafolder exist.
+# If not, create it.
+if not os.path.exists(PATH_APPDATA+'\\image-resizer'):
+    os.mkdir(PATH_APPDATA+'\\image-resizer')
+
+    with open(PATH_APPDATA+'\\image-resizer\\folder_count.txt', 'w') as outfile:
+        outfile.write('1')
 
 # Create a Tkinter Widget.
 class ImageResizer(tk.Tk): 
@@ -23,12 +33,12 @@ class ImageResizer(tk.Tk):
         # Give the Widget a name.
         self.title("Image Resizer")
         # Give the Widget a size.
-        self.geometry("1005x700")
+        self.geometry("820x580")
         # Center your Frame in the middle-top.
         self.columnconfigure(0, weight=1)
 
         # Set the overall fontsize to 12 instead of 10.
-        font.nametofont("TkDefaultFont").configure(size=15)
+        font.nametofont("TkDefaultFont").configure(size=12)
 
         # Create the list in wich you'll save the selcted images.
         self.all_img_paths = []
@@ -37,7 +47,7 @@ class ImageResizer(tk.Tk):
 
 
         self.frames = {}
-        for F in (StartPage, DownloadPage):
+        for F in (StartPage, ResizePage):
             page_name = F.__name__
             frame = F(parent=container, controller=self)
             self.frames[page_name] = frame
