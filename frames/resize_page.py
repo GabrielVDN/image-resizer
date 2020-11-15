@@ -3,6 +3,7 @@ from tkinter import ttk
 import time
 import os
 from tkinter import messagebox
+from PIL import Image
 
 
 PATH_APPDATA = os.getenv("APPDATA")
@@ -79,21 +80,33 @@ class ResizePage(ttk.Frame):
                 img_amount = len(controller.all_img_paths)
                 progbar['maximum'] = img_amount
                 back_button['state'] = 'disabled'
+                resize_button['state'] = 'disabled'
+                create_folder()
                 for img_path in controller.all_img_paths:
                     img_amount_done.set(img_amount_done.get()+1)
                     label2['text'] = f'Resizing: {img_amount_done.get()}/{img_amount}'
                     self.update()
-                    time.sleep(0.5)
+
+                    resize_image(img_path)
+
+                    time.sleep(0.2)
 
                 label2['text'] = 'Done!'
-                back_button['state'] = 'normal'
-                self.create_folder()
                 self.update()
                 time.sleep(1)
+                back_button['state'] = 'normal'
+                resize_button['state'] = 'normal'
                 img_amount_done.set(0)
                 label2['text'] = 'All the images are stored in a folder in C:\\'
             else:
                 messagebox.showerror("No Size Selected", "You need to select an image size!")
+
+        def resize_image(img_path):
+            im = Image.open(img_path)
+            im = im.resize((200,200),Image.ANTIALIAS)
+            img = img_path.split('/')
+            im = im.save(f'C:\\resized-images-folder{controller.folder_count.get()}\\{img[-1]}')
+
 
 
         resize_button = ttk.Button(
@@ -103,12 +116,15 @@ class ResizePage(ttk.Frame):
         )
         resize_button.grid(row=9, column=0, padx=12, pady=12, sticky="EW")
 
-    def create_folder(self):
-        '''create a folder in C:\ and store all resized images'''
-        with open(PATH_APPDATA+'\\image-resizer\\folder_count.txt', 'r') as outfile:
-            folder_count = outfile.read()
+        def create_folder():
+            '''create a folder in C:\ and store all resized images'''
+            with open(PATH_APPDATA+'\\image-resizer\\folder_count.txt', 'r') as outfile:
+                f_c = outfile.read()
 
-        os.mkdir(f'C:\\resized-images-folder{folder_count}')
+            controller.folder_count.set(f_c)
+            
 
-        with open(PATH_APPDATA+'\\image-resizer\\folder_count.txt', 'w') as outfile:
-            outfile.write(str(int(folder_count)+1))
+            os.mkdir(f'C:\\resized-images-folder{controller.folder_count.get()}')
+
+            with open(PATH_APPDATA+'\\image-resizer\\folder_count.txt', 'w') as outfile:
+                outfile.write(str(int(controller.folder_count.get())+1))

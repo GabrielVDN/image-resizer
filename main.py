@@ -44,6 +44,7 @@ class ImageResizer(tk.Tk):
         self.all_img_paths = []
         # Create all needed Variables.
         self.var_radio = tk.StringVar()
+        self.folder_count = tk.StringVar()
 
 
         self.frames = {}
