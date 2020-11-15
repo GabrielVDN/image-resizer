@@ -87,10 +87,10 @@ class ResizePage(ttk.Frame):
 
                 label2['text'] = 'Done!'
                 back_button['state'] = 'normal'
-                img_amount_done.set(0)
                 self.create_folder()
                 self.update()
                 time.sleep(1)
+                img_amount_done.set(0)
                 label2['text'] = 'All the images are stored in a folder in C:\\'
             else:
                 messagebox.showerror("No Size Selected", "You need to select an image size!")
@@ -104,9 +104,11 @@ class ResizePage(ttk.Frame):
         resize_button.grid(row=9, column=0, padx=12, pady=12, sticky="EW")
 
     def create_folder(self):
+        '''create a folder in \C and store all resized images'''
         with open(PATH_APPDATA+'\\image-resizer\\folder_count.txt', 'r') as outfile:
             folder_count = outfile.read()
 
         os.mkdir(f'C:\\resized-images-folder{folder_count}')
+        
         with open(PATH_APPDATA+'\\image-resizer\\folder_count.txt', 'w') as outfile:
             outfile.write(str(int(folder_count)+1))
