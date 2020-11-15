@@ -104,11 +104,11 @@ class ResizePage(ttk.Frame):
         resize_button.grid(row=9, column=0, padx=12, pady=12, sticky="EW")
 
     def create_folder(self):
-        '''create a folder in \C and store all resized images'''
+        '''create a folder in C:\ and store all resized images'''
         with open(PATH_APPDATA+'\\image-resizer\\folder_count.txt', 'r') as outfile:
             folder_count = outfile.read()
 
         os.mkdir(f'C:\\resized-images-folder{folder_count}')
-        
+
         with open(PATH_APPDATA+'\\image-resizer\\folder_count.txt', 'w') as outfile:
             outfile.write(str(int(folder_count)+1))
