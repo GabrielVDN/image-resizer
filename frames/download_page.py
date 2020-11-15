@@ -46,28 +46,31 @@ class DownloadPage(ttk.Frame):
         label2 = ttk.Label(self, font=('system', 15))
         label2.grid(row=5, column=0, padx=12, pady=(30, 12))
 
-        int_var = tk.IntVar()
+        img_amount_done = tk.IntVar()
+        
         progbar = ttk.Progressbar(
             self,
             orient=tk.HORIZONTAL, 
             mode='determinate',
-            maximum=100,
-            variable=int_var,
+            variable=img_amount_done,
             style="TProgressbar"
         )
         progbar.grid(row=6, column=0, padx=12, pady=12, sticky="EW")
 
         def resize_images():
-google scriptgoogle script            label2['text'] = 'Resizing'
+            '''resize the chosen images'''
+            img_amount = len(controller.all_img_paths)
+            progbar['maximum'] = img_amount
             back_button['state'] = 'disabled'
-            while int_var.get() < 101:
-                int_var.set(int_var.get()+1)
-                time.sleep(0.01)
+            for img_path in controller.all_img_paths:
+                img_amount_done.set(img_amount_done.get()+1)
+                label2['text'] = f'Resizing: {img_amount_done.get()}/{img_amount}'
                 self.update()
+                time.sleep(1)
+
             label2['text'] = 'Done!'
-            self.update()
-            time.sleep(1)
-            int_var.set(0)
+            back_button['state'] = 'normal'
+            img_amount_done.set(0)
 
         resize_button = ttk.Button(
             self,
