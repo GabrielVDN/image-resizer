@@ -88,10 +88,10 @@ class ResizePage(ttk.Frame):
                 label2['text'] = 'Done!'
                 back_button['state'] = 'normal'
                 img_amount_done.set(0)
+                self.create_folder()
             else:
                 messagebox.showerror("No Size Selected", "You need to select an image size!")
 
-            self.create_folder()
 
         resize_button = ttk.Button(
             self,
