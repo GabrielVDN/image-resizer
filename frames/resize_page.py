@@ -31,37 +31,32 @@ class ResizePage(ttk.Frame):
         back_button.grid(row=0, column=0, padx=12, pady=12, sticky="E")
 
         radio1 = ttk.Radiobutton(
-            self, text="10px", variable=controller.var_radio, value="10px"
+            self, text="Instagram Square Photo", variable=controller.var_radio, value=1
         )
-        radio1.grid(row=1, column=0, padx=12, pady=(15,8))
+        radio1.grid(row=1, column=0, padx=(250, 0), pady=(15,8), sticky="W")
         
         radio2 = ttk.Radiobutton(
-            self, text="20px", variable=controller.var_radio, value="20px"
+            self, text="Instagram Landscape Photo", variable=controller.var_radio, value=2
         )
-        radio2.grid(row=2, column=0, padx=12, pady=8)
+        radio2.grid(row=2, column=0, padx=(250, 0), pady=8, sticky="W")
 
         radio3 = ttk.Radiobutton(
-            self, text="30px", variable=controller.var_radio, value="30px"
+            self, text="Instagram Portrait Photo", variable=controller.var_radio, value=3
         )
-        radio3.grid(row=3, column=0, padx=12, pady=8)
+        radio3.grid(row=3, column=0, padx=(250, 0), pady=8, sticky="W")
 
         radio4 = ttk.Radiobutton(
-            self, text="40px", variable=controller.var_radio, value="40px"
+            self, text="Square Image", variable=controller.var_radio, value=4
         )
-        radio4.grid(row=4, column=0, padx=12, pady=8)
+        radio4.grid(row=4, column=0, padx=(250, 0), pady=8, sticky="W")
 
         radio5 = ttk.Radiobutton(
-            self, text="50px", variable=controller.var_radio, value="50px"
+            self, text="Half The Original Size", variable=controller.var_radio, value=5
         )
-        radio5.grid(row=5, column=0, padx=12, pady=8)
-
-        radio6 = ttk.Radiobutton(
-            self, text="60px", variable=controller.var_radio, value="60px"
-        )
-        radio6.grid(row=6, column=0, padx=12, pady=8)
+        radio5.grid(row=5, column=0, padx=(250, 0), pady=8, sticky="W")
 
         label2 = ttk.Label(self, font=('system', 12))
-        label2.grid(row=7, column=0, padx=12, pady=(10,12))
+        label2.grid(row=7, column=0, padx=12, pady=(26,12))
 
         img_amount_done = tk.IntVar()
         
@@ -103,10 +98,24 @@ class ResizePage(ttk.Frame):
 
         def resize_image(img_path):
             im = Image.open(img_path)
-            im = im.resize((200,200),Image.ANTIALIAS)
+            if controller.var_radio.get() == 1:
+                im = im.resize((1080, 1080),Image.ANTIALIAS)
+
+            elif controller.var_radio.get() == 2:
+                im = im.resize((1080, 608),Image.ANTIALIAS)
+
+            elif controller.var_radio.get() == 3:
+                im = im.resize((1080, 1350),Image.ANTIALIAS)
+
+            elif controller.var_radio.get() == 4:
+                im = im.resize((400, 400),Image.ANTIALIAS)
+
+            elif controller.var_radio.get() == 5:
+                h, w = im.size
+                im = im.resize((int(h/2),int(w/2)),Image.ANTIALIAS)
+
             img = img_path.split('/')
             im = im.save(f'C:\\resized-images-folder{controller.folder_count.get()}\\{img[-1]}')
-
 
 
         resize_button = ttk.Button(

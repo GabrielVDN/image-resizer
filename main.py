@@ -43,7 +43,7 @@ class ImageResizer(tk.Tk):
         # Create the list in wich you'll save the selcted images.
         self.all_img_paths = []
         # Create all needed Variables.
-        self.var_radio = tk.StringVar()
+        self.var_radio = tk.IntVar()
         self.folder_count = tk.StringVar()
 
 
