@@ -89,6 +89,9 @@ class ResizePage(ttk.Frame):
                 back_button['state'] = 'normal'
                 img_amount_done.set(0)
                 self.create_folder()
+                self.update()
+                time.sleep(1)
+                label2['text'] = 'All the images are stored in a folder in C:\\'
             else:
                 messagebox.showerror("No Size Selected", "You need to select an image size!")
 
