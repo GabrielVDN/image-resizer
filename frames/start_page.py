@@ -24,7 +24,7 @@ class StartPage(ttk.Frame):
 
         def get_imgs():
             '''open file explorer and let them select an imgage'''
-            img_paths = list(filedialog.askopenfilenames(initialdir="\\Users\\gabri\\OneDrive\\Pictures\\SavedPictures", title="Select An Image", filetypes=(("jpeg files", "*.jpg"), ("png files", "*.png"), ("icon files", "*.ico"))))
+            img_paths = list(filedialog.askopenfilenames(initialdir="\\Users", title="Select An Image", filetypes=(("jpeg files", "*.jpg"), ("png files", "*.png"), ("icon files", "*.ico"))))
             
             if img_paths:
                 for path in img_paths:
