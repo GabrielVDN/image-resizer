@@ -43,4 +43,4 @@ If this doesn't work try this first:
 python -m pip install --upgrade pip
 ```
 
-If you followed all the instructions you can run the **main.py** file.
+If you followed all the instructions you can run the **image_resizer.py** file.
